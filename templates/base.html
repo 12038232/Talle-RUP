@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Sistema de Proyectos</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+<h1>Sistema de Gestión de Proyectos</h1>
+
+<nav>
+<a href="/">Inicio</a>
+<a href="/proyectos">Proyectos</a>
+<a href="/proyectos/nuevo">Nuevo Proyecto</a>
+<a href="/registrar">Registrar Usuario</a>
+</nav>
+
+<hr>
+
+{% block content %}
+{% endblock %}
+
+</body>
+</html>

@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h2>Registrar Proyecto</h2>
+
+<form method="POST">
+
+<label>Nombre del proyecto</label>
+<br>
+<input type="text" name="nombre" required>
+
+<br><br>
+
+<label>Descripción</label>
+<br>
+<input type="text" name="descripcion" required>
+
+<br><br>
+
+<label>Estado</label>
+<br>
+<select name="estado">
+<option>En curso</option>
+<option>Finalizado</option>
+<option>Archivado</option>
+</select>
+
+<br><br>
+
+<button type="submit">Guardar</button>
+
+</form>
+
+{% endblock %}

@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h2>Lista de Proyectos</h2>
+
+{% if proyectos %}
+
+<table border="1">
+<tr>
+<th>Nombre</th>
+<th>Descripción</th>
+<th>Estado</th>
+<th>Acción</th>
+</tr>
+
+{% for p in proyectos %}
+
+<tr>
+<td>{{ p.nombre }}</td>
+<td>{{ p.descripcion }}</td>
+<td>{{ p.estado }}</td>
+<td>
+<a href="/proyectos/eliminar/{{p.id}}">Eliminar</a>
+</td>
+</tr>
+
+{% endfor %}
+
+</table>
+
+{% else %}
+
+<p>No hay proyectos registrados</p>
+
+{% endif %}
+
+{% endblock %}
