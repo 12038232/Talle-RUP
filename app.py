@@ -4,6 +4,7 @@ app = Flask(__name__)
 
 proyectos = []
 usuarios = []
+Estudiantes = []
 
 @app.route('/')
 def index():
@@ -46,7 +47,30 @@ def registrar():
         usuarios.append(usuario)
         mensaje = "Usuario registrado correctamente"
 
-    return render_template('registrar.html', mensaje=mensaje)
+        
+
+    return render_template('Estudiantes.html', mensaje=mensaje)
+@app.route('/Estudiantes')
+def lista_Estudiantes():
+    return render_template('Estudiantes.html', Estudiantes=Estudiantes)
+
+@app.route('/Estudiantes/nuevo', methods=['GET','POST'])
+def nuevo_Estudiantes():
+    if request.method == 'POST':
+        Estudiantes = {
+            'id': len(Estudiantes)+1,
+            'nombre': request.form['nombre']
+        }
+        Estudiantes.append(Estudiantes)
+        return redirect(url_for('lista_Estudiantes'))
+
+    return render_template('Estudiantes.html')
+
+@app.route('/Estudiantes/eliminar/<int:id>')
+def eliminar(id):
+    global Estudiantes
+    Estudiantes = [p for p in Estudiantes if p['id'] != id]
+    return redirect(url_for('lista_Estudiantes'))
 
 if __name__ == '__main__':
     app.run(debug=True)
