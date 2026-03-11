@@ -7,7 +7,9 @@
 {% if proyectos %}
 
 <table border="1">
+
 <tr>
+<th>ID</th>
 <th>Nombre</th>
 <th>Descripción</th>
 <th>Estado</th>
@@ -17,12 +19,16 @@
 {% for p in proyectos %}
 
 <tr>
+
+<td>{{ p.id }}</td>
 <td>{{ p.nombre }}</td>
 <td>{{ p.descripcion }}</td>
 <td>{{ p.estado }}</td>
+
 <td>
-<a href="/proyectos/eliminar/{{p.id}}">Eliminar</a>
+<a href="/proyectos/eliminar/{{ p.id }}">Eliminar</a>
 </td>
+
 </tr>
 
 {% endfor %}
@@ -31,7 +37,7 @@
 
 {% else %}
 
-<p>No hay proyectos registrados</p>
+<p>No hay proyectos registrados.</p>
 
 {% endif %}
 

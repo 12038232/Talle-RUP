@@ -2,27 +2,31 @@
 
 {% block content %}
 
-<h2>Estudiantes registrados </h2>
+<h2>Estudiantes registrados</h2>
 
 {% if Estudiantes %}
 
 <table border="1">
+
 <tr>
-<th>id</th>
+<th>ID</th>
 <th>Nombre</th>
-<th>correo institucional</th>
+<th>Correo</th>
+<th>Acción</th>
 </tr>
 
-{% for p in Estudiantes %}
+{% for e in Estudiantes %}
 
 <tr>
-<td>{{ p.iD }}</td>
-<td>{{ p.Nombre }}</td>
-<td>{{ p.Correo institucional }}</td>
+
+<td>{{ e.id }}</td>
+<td>{{ e.nombre }}</td>
+<td>{{ e.correo }}</td>
 
 <td>
-<a href="/Estudiantes/eliminar/{{p.iD}}">Eliminar</a>
+<a href="/estudiantes/eliminar/{{ e.id }}">Eliminar</a>
 </td>
+
 </tr>
 
 {% endfor %}
@@ -31,7 +35,7 @@
 
 {% else %}
 
-<p>No hay Estudiantes registrados</p>
+<p>No hay estudiantes registrados.</p>
 
 {% endif %}
 

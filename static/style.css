@@ -10,10 +10,10 @@ font-weight:bold;
 }
 
 table{
-border-collapse: collapse;
 margin-top:20px;
+border-collapse:collapse;
 }
 
-td,th{
+th,td{
 padding:10px;
 }

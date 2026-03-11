@@ -6,24 +6,20 @@
 
 <form method="POST">
 
-<label>Nombre</label>
+<label>Nombre:</label>
 <br>
 <input type="text" name="nombre" required>
 
 <br><br>
 
-<label>Email</label>
+<label>Correo:</label>
 <br>
-<input type="email" name="email" required>
+<input type="email" name="correo" required>
 
 <br><br>
 
 <button type="submit">Registrar</button>
 
 </form>
-
-{% if mensaje %}
-<p>{{mensaje}}</p>
-{% endif %}
 
 {% endblock %}

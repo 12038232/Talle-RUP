@@ -1,20 +1,26 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-<title>Sistema de Proyectos</title>
+
+<title>Sistema de Gestión de Proyectos</title>
+
 <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
 </head>
 
 <body>
 
-<h1>Sistema de Gestión de Proyectos</h1>
+<h1>Sistema de Gestión de Proyectos Estudiantiles</h1>
 
 <nav>
-<a href="/">Inicio</a>
-<a href="/proyectos">Proyectos</a>
-<a href="/proyectos/nuevo">Nuevo Proyecto</a>
-<a href="/registrar">Registrar Estudiante</a>
-<a href="/Estudiantes">Estudiante</a>
+
+<a href="/">Inicio</a> |
+<a href="/proyectos">Proyectos</a> |
+<a href="/proyectos/nuevo">Registrar Proyecto</a> |
+<a href="/estudiantes">Estudiantes</a> |
+<a href="/estudiantes/registrar">Registrar Estudiante</a>
+
 </nav>
 
 <hr>
@@ -23,4 +29,5 @@
 {% endblock %}
 
 </body>
+
 </html>
