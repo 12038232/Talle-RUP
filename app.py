@@ -99,12 +99,14 @@ def asignar():
 
         estudiante = request.form.get('estudiante')
         proyecto = request.form.get('proyecto')
+        estado = request.form.get("estado")
 
-        if estudiante and proyecto:
+        if estudiante and proyecto and estado:
 
             asignacion = {
                 'estudiante': estudiante,
-                'proyecto': proyecto
+                'proyecto': proyecto,
+                'estado' : estado
             }
 
             asignar_proyecto.append(asignacion)
