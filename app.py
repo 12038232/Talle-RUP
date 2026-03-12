@@ -4,6 +4,7 @@ app = Flask(__name__)
 
 proyectos = []
 Estudiantes = []
+asignar_proyecto=[]
 
 # -------------------------
 # PAGINA PRINCIPAL
@@ -57,7 +58,7 @@ def eliminar_proyecto(id):
 
 @app.route('/estudiantes')
 def lista_estudiantes():
-    return render_template('Estudiantes.html', Estudiantes=Estudiantes)
+    return render_template('estudiantes.html', Estudiantes=Estudiantes)
 
 
 @app.route('/estudiantes/registrar', methods=['GET', 'POST'])
@@ -87,5 +88,36 @@ def eliminar_estudiante(id):
     return redirect(url_for('lista_estudiantes'))
 
 
+# -------------------------
+# ASIGNAR PROYECTOS
+# -------------------------
+
+@app.route('/asignar', methods=['GET', 'POST'])
+def asignar():
+
+    if request.method == 'POST':
+
+        estudiante = request.form.get('estudiante')
+        proyecto = request.form.get('proyecto')
+
+        if estudiante and proyecto:
+
+            asignacion = {
+                'estudiante': estudiante,
+                'proyecto': proyecto
+            }
+
+            asignar_proyecto.append(asignacion)
+
+            print(asignar_proyecto)  # 👈 esto es para verificar
+
+        return redirect(url_for('asignar'))
+
+    return render_template(
+        'asignar_proyecto.html',
+        Estudiantes=Estudiantes,
+        proyectos=proyectos,
+        asignaciones=asignar_proyecto
+    )
 if __name__ == '__main__':
     app.run(debug=True)

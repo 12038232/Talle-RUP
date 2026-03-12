@@ -1,0 +1,53 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h2>Asignar Proyecto</h2>
+
+<form method="POST">
+
+<label>Estudiante</label>
+<select name="estudiante">
+
+{% for e in Estudiantes %}
+<option value="{{ e.nombre }}">{{ e.nombre }}</option>
+{% endfor %}
+
+</select>
+
+
+<label>Proyecto</label>
+<select name="proyecto">
+
+{% for p in proyectos %}
+<option value="{{ p.nombre }}">{{ p.nombre }}</option>
+{% endfor %}
+
+</select>
+
+<button type="submit">Asignar</button>
+
+</form>
+
+
+<h3>Lista de asignaciones</h3>
+
+<table border="1">
+
+<tr>
+<th>Estudiante</th>
+<th>Proyecto</th>
+</tr>
+
+{% for a in asignaciones %}
+
+<tr>
+<td>{{ a.estudiante }}</td>
+<td>{{ a.proyecto }}</td>
+</tr>
+
+{% endfor %}
+
+</table>
+
+{% endblock %}
